@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-
 @Entity
 @Data
 @NoArgsConstructor
@@ -28,28 +27,32 @@ public class Transaction {
     @Column(updatable = false, nullable = false)
     private Long id;
 
-    // Public reference for APIs
     @Column(unique = true, nullable = false)
     private String transactionRef;
 
-    // CREDIT or DEBIT
     @Enumerated(EnumType.STRING)
     private TransactionType type;
 
-    // Amount in minor units (kobo / cents)
+
     private Long amount;
 
     private String currencyCode;
-
     private String narration;
 
-    // SUCCESS, PENDING, FAILED
     @Enumerated(EnumType.STRING)
     private TransactionStatus status;
 
-    @ManyToOne
+    @Column(name = "idempotency_key", nullable = false, unique = true)
+    private String idempotencyKey;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "wallet_id", nullable = false)
     private Wallet wallet;
+
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "customer_id", nullable = false)
+    private Customer customer;
 
     private LocalDateTime createdAt;
 }
