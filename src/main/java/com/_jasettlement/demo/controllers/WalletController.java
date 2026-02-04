@@ -2,6 +2,7 @@ package com._jasettlement.demo.controllers;
 
 
 import com._jasettlement.demo.entity.request.CreateWalletRequest;
+import com._jasettlement.demo.service.serviceImpl.WalletServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,11 +16,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/wallets")
 public class WalletController {
     @Autowired
-    private WalletServiceImpl walletservice;
+    private WalletServiceImplementation walletServiceImplementation;
 
 
     public ResponseEntity<?> createWallet(@RequestBody CreateWalletRequest createWalletRequest){
-
+        return null;
     }
 
 }

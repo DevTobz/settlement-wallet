@@ -29,8 +29,8 @@ public class Wallet {
     private Long id;
     private String walletName;
     private String currencyCode;
-    private Double walletBalance;
-    private Double ledgerBalance;
+    private Long walletBalance;
+    private Long ledgerBalance;
     private String walletPublicId;
     private String serviceProvider;
     private boolean isActive;

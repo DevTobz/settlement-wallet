@@ -12,18 +12,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class User {
+public class Customer {
 
     @Id
-    @SequenceGenerator(name = "user_sequence",
-            sequenceName = "user_sequence",
+    @SequenceGenerator(name = "customer_sequence",
+            sequenceName = "customer_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "user_sequence"
+            generator = "customer_sequence"
     )
-    @Column(name = "user_id", updatable = false, nullable = false)
+    @Column(name = "customer_id", updatable = false, nullable = false)
     private Long id;
     private String firstName;
     private String lastName;

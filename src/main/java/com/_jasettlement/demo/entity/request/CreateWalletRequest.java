@@ -9,5 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CreateWalletRequest {
-
+    private String walletName;
+    private String currencyCode;
+    private Double walletBalance;
+    private Double ledgerBalance;
+    private String walletPublicId;
+    private String serviceProvider;
 }
