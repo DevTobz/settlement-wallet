@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Entity
@@ -47,10 +48,7 @@ public class Wallet {
     @JoinColumn(name = "customer_id", nullable = false)
     private Customer customer;
 
-    @OneToMany(
-            mappedBy = "wallet",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true
-    )
-    private List<Transaction> transactions = new ArrayList<>();
+    @OneToMany(mappedBy = "wallet", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Transaction> transactionList;
+
 }
